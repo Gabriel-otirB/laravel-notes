@@ -68,11 +68,13 @@ class AuthController extends Controller
             ]
         ]);
 
-        echo 'LOGIN COM SUCESSO';
+        echo 'LOGIN COM SUCESSO!';
     }
 
     public function logout()
     {
-        echo 'Logout';
+        // logout from the application
+        session()->forget('user');
+        return redirect()->to('/login');
     }
 }
