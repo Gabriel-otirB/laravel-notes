@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
+use PhpParser\Node\Stmt\TryCatch;
 
 class MainController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         // load users's notes
         $id = session('user.id');
         $notes = User::find($id)->notes()->get()->toArray();
@@ -16,7 +20,36 @@ class MainController extends Controller
         return view('home', ['notes' => $notes]);
     }
 
-    public function newNote() {
+    public function newNote()
+    {
+
+
         echo "I'm creating a new note!";
+    }
+
+    public function editNote($id)
+    {
+        $id = $this->decryptId($id);
+
+        echo "I'm editing note with id = $id";
+    }
+
+    public function deleteNote($id)
+    {
+        $id = $this->decryptId($id);
+
+        echo "I'm deleting note with id = $id";
+    }
+
+    private function decryptId($id)
+    {
+        // check if $id is encrypted
+        try {
+            $id = Crypt::decrypt($id);
+        } catch (DecryptException $e) {
+            return redirect()->route('home');
+        }
+
+        return $id;
     }
 }
