@@ -2,11 +2,13 @@
 
 # Laravel Notes
 
+O **Laravel Notes** é um aplicativo de anotações simples, desenvolvido com o framework PHP **Laravel** e utilizando **Blade** para a renderização de views. O objetivo do projeto é fornecer uma plataforma para criação, visualização, edição e exclusão de anotações com **CRUD completo**. A aplicação também implementa uma **confirmação de exclusão** antes de realizar a remoção das notas, além de permitir o uso do **soft delete**, garantindo que os dados não sejam apagados permanentemente.
+
 https://github.com/user-attachments/assets/978f6b2d-7822-488b-b64e-d2804260591e
 
 ## Descrição
 
-O **Laravel Notes** é um aplicativo de anotações simples, desenvolvido com o framework PHP **Laravel** e utilizando **Blade** para a renderização de views. O objetivo do projeto é fornecer uma plataforma para criação, visualização, edição e exclusão de anotações com **CRUD completo**. A aplicação também implementa uma **confirmação de exclusão** antes de realizar a remoção das notas, além de permitir o uso do **soft delete**, garantindo que os dados não sejam apagados permanentemente.
+
 
 ## Funcionalidades
 
